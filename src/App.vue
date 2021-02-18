@@ -2,6 +2,7 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <div class="empty"></div>
     <Upload/>
   </div>
 </template>
@@ -26,5 +27,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.empty{
+  height: 340px;
 }
 </style>
