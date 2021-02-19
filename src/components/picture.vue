@@ -2,17 +2,20 @@
 
   <div class="block" id="pic">
     <!-- <span class="demonstration">{{ fit }}</span> -->
-     <el-button icon="el-icon-arrow-left" circle id="leftBtn" v-show="index" @click="lastPic"></el-button>
+    <div style="margin: auto; ">
+     <el-button icon="el-icon-arrow-left" circle id="leftBtn" @click="lastPic"></el-button>
     <el-image
       style="width: 850px; height: 550px"
       :src="urlList[index]"
       :fit="fits">
       </el-image>
-      <el-button icon="el-icon-arrow-right" circle id="rightBtn" v-show="(index-(urlList.length-1))" @click="nextPic"></el-button>
+      <el-button icon="el-icon-arrow-right" circle id="rightBtn" @click="nextPic"></el-button>
+    </div>
   </div>
 
 </template>
 <script>
+import TextRes from './text.vue'
 export default {
   name:'pictureSource',
   data() { 
@@ -33,13 +36,16 @@ export default {
         this.index>0?this.index--:this.leftShow=false;
       }
     },
+    components:{
+      TextRes
+    }
 }
 </script>
 <style>
 #leftBtn{
   vertical-align: middle;
   margin-bottom: 560px;
-
+  
 }
 #rightBtn{
   vertical-align: middle;
@@ -47,7 +53,14 @@ export default {
  
 }
 #pic{
-  width: 1100px;
+  width: 1000px;
+  display: inline-block;
+  margin-right: 20px;
+  border: 2px solid #BEBEBE;
+  border-radius: 5px;
+  height: 555px;
+  background-color: #fff;
+  
 }
 </style>
 
