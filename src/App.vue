@@ -2,19 +2,25 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <div class="empty"></div>
+    <div class="empty">
+    <PictureSource/>
+    <TextRes/>
+    </div>
     <Upload/>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
+import TextRes from './components/text.vue'
 import Upload from './components/upload.vue'
+import PictureSource from './components/picture.vue'
 export default {
   name: 'App',
   components: {
-    Upload
+    Upload,
+    TextRes,
+    PictureSource
   }
 }
 </script>
@@ -29,6 +35,6 @@ export default {
   margin-top: 60px;
 }
 .empty{
-  height: 340px;
+  height: 600px;
 }
 </style>
