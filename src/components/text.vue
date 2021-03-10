@@ -8,7 +8,7 @@
     <el-table-column
       prop="date"
       label="识别文本"
-      width="180">
+      width="280">
     </el-table-column>
   </el-table>
 </div>
@@ -27,7 +27,21 @@
           date: '文本三',
         }, {
           date: '文本四',
-        }]
+        },{
+          date: '文本四',
+        },{
+          date: '文本四',
+        },{
+          date: '文本四',
+        },{
+          date: '文本四',
+        },{
+          date: '文本四',
+        },{
+          date: '文本四',
+        },{
+          date: '文本四',
+        },]
       }
     }
   }
@@ -39,5 +53,8 @@
   vertical-align: top;
   border:1px solid #BEBEBE;
   border-radius: 2px;
+  height: 560px;
+  overflow-x: auto; 
+  overflow-y: auto;
 }
 </style>
