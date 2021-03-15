@@ -3,7 +3,6 @@
   <el-table
     :data="tableData"
     stripe
-
     style="width: 95%; display: inline-block;">
     <el-table-column
       prop="date"
@@ -56,5 +55,6 @@
   height: 560px;
   overflow-x: auto; 
   overflow-y: auto;
+  margin-top: 7px;
 }
 </style>

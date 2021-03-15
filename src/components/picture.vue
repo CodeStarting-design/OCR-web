@@ -2,7 +2,7 @@
 
   <div class="block" id="pic">
     <!-- <span class="demonstration">{{ fit }}</span> -->
-    <div style="margin: auto; ">
+    <div>
      <el-button icon="el-icon-arrow-left" circle id="leftBtn" @click="lastPic"></el-button>
     <el-image
       style="width: 850px; height: 550px"
@@ -56,6 +56,7 @@ export default {
   width: 1000px;
   display: inline-block;
   margin-right: 20px;
+  margin-top: 7px;
   border: 2px solid #BEBEBE;
   border-radius: 5px;
   height: 555px;
