@@ -2,15 +2,14 @@
 
   <div class="block" id="pic">
     <!-- <span class="demonstration">{{ fit }}</span> -->
-    <div>
-     <el-button icon="el-icon-arrow-left" circle id="leftBtn" @click="lastPic"></el-button>
+     <el-button icon="el-icon-arrow-left" circle id="leftBtn" type="success" @click="lastPic" ></el-button>
     <el-image
-      style="width: 850px; height: 550px"
-      :src="urlList[index]"
-      :fit="fits">
+      style="width: 850px; height: 550px" 
+      :src ="imageUrl"
+      :fit="fits" 
+      class="imgShow">
       </el-image>
-      <el-button icon="el-icon-arrow-right" circle id="rightBtn" @click="nextPic"></el-button>
-    </div>
+      <el-button icon="el-icon-arrow-right" circle id="rightBtn" type="success" @click="nextPic"></el-button>
   </div>
 
 </template>
@@ -21,23 +20,28 @@ export default {
   data() { 
       return { 
         fits: 'scale-down', 
-        urlList:['https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg','https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg','https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg'],
-        index:0,
         leftShow:false,
         rightShow:true
       }
     },
     methods: {
       nextPic(){
-      this.index<this.urlList.length-1?this.index++:this.rightShow=false;
-      console.log(this.index)
+      this.$store.commit('nextRecItem')
+      this.$store.state.RecIndex<this.$store.state.PicTextList.length-1?this.rightShow=true:this.rightShow=false;
       },
       lastPic(){
-        this.index>0?this.index--:this.leftShow=false;
+        this.$store.commit('lastRecItem')
+        this.$store.state.RecIndex<0?this.leftShow=false:this.leftShow=true;
       }
     },
     components:{
       TextRes
+    },
+    computed:{
+       imageUrl(){
+        //  return "https://whutosa.coreja.com/ocr/outputImage/196778030-067-001.jpg"
+         return  this.$store.state.PicTextList[this.$store.state.RecIndex].picUrl
+       },
     }
 }
 </script>
@@ -61,7 +65,25 @@ export default {
   border-radius: 5px;
   height: 555px;
   background-color: #fff;
+  background: 
+  linear-gradient(to left, #218ef5, #218ef5) left top no-repeat,
+	linear-gradient(to bottom, #218ef5, #218ef5) left top no-repeat,
+	linear-gradient(to left, #218ef5, #218ef5) right top no-repeat,
+	linear-gradient(to bottom, #218ef5, #218ef5) right top no-repeat,
+	linear-gradient(to left, #218ef5, #218ef5) left bottom no-repeat,
+	linear-gradient(to bottom, #218ef5, #218ef5) left bottom no-repeat,
+	linear-gradient(to left, #218ef5, #218ef5) right bottom no-repeat,
+	linear-gradient(to left, #218ef5, #218ef5) right bottom no-repeat;
+	background-size: 3px 20px, 20px 3px, 3px 20px, 20px 3px;
+  border:1px solid #BEBEBE;
+  height: 100%;
+  background-color: #FFFFF0;
   
+}
+.imgShow{
+   border:1px dashed #BEBEBE;
+   border-top:none;
+   border-bottom:none;
 }
 </style>
 
